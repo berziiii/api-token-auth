@@ -1,15 +1,24 @@
 'use strict';
 
-const signUp = (success, failure, data) => {
-  if (Math.random() > 0.5) {
-    success('in signUp');
-  } else {
-    let error = new Error('Random');
-    error.data = data;
-    failure(error);
-  }
+const app = require('../app');
+
+const signUp = (data) => {
+  return $.ajax({
+    url: app.host + '/sign-up',
+    method: 'POST',
+    data: data,
+  });
+};
+
+const signIn= (data) => {
+  return $.ajax({
+    url: app.host + '/sign-in',
+    method: 'POST',
+    data: data,
+  });
 };
 
 module.exports = {
   signUp,
+  signIn,
 };
