@@ -6,3 +6,4 @@ const authEvents = require('./auth/events');
 $(() => {
   const circular = require('./circular/index'); // fuggetaboutit
   authEvents.addHandlers();
+});
